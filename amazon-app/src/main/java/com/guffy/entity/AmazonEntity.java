@@ -5,15 +5,23 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.guffy.rest.ProductCategory;
+import com.guffy.rest.ProductManufacture;
+
 @Entity
 @Table(name = "PRODUCT")
 @XmlRootElement
+@NamedQuery(name = "amazonProducts.search", query = "select c from AmazonEntity c where UPPER(c.pname) like UPPER(:p1) OR UPPER(c.pnumber) like UPPER(:p2) OR UPPER(c.upc) like UPPER(:p3)")
+
 public class AmazonEntity {
 
 	@Id
@@ -26,20 +34,21 @@ public class AmazonEntity {
 	private String pname;
 
 	@Column(name = "prod_number")
-	private Long pnumber;
+	private String pnumber;
 
 	@Column(name = "prod_upc")
 
 	private String upc;
-
+	@Enumerated(EnumType.STRING)
 	@Column(name = "prod_cat")
-	private String category;
+	private ProductCategory category;
 
 	@Column(name = "prod_desc")
 	private String desc;
 
+	@Enumerated(EnumType.STRING)
 	@Column(name = "prod_mnfc")
-	private String manufac;
+	private ProductManufacture manufac;
 
 	@Column(name = "prod_ver")
 	private Long version;
@@ -81,11 +90,11 @@ public class AmazonEntity {
 		this.pname = pname;
 	}
 
-	public Long getPnumber() {
+	public String getPnumber() {
 		return pnumber;
 	}
 
-	public void setPnumber(Long pnumber) {
+	public void setPnumber(String pnumber) {
 		this.pnumber = pnumber;
 	}
 
@@ -99,11 +108,11 @@ public class AmazonEntity {
 		this.upc = upc;
 	}
 
-	public String getCategory() {
+	public ProductCategory getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(ProductCategory category) {
 		this.category = category;
 	}
 
@@ -115,11 +124,11 @@ public class AmazonEntity {
 		this.desc = desc;
 	}
 
-	public String getManufac() {
+	public ProductManufacture getManufac() {
 		return manufac;
 	}
 
-	public void setManufac(String manufac) {
+	public void setManufac(ProductManufacture manufac) {
 		this.manufac = manufac;
 	}
 

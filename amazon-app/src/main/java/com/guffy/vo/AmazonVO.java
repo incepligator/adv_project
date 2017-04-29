@@ -4,6 +4,9 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.guffy.rest.ProductCategory;
+import com.guffy.rest.ProductManufacture;
+
 @XmlRootElement
 public class AmazonVO {
 
@@ -11,15 +14,15 @@ public class AmazonVO {
 
 	private String pname;
 
-	private Long pnumber;
+	private String pnumber;
 
 	private String upc;
 
-	private String category;
+	private ProductCategory category;
 
 	private String desc;
 
-	private String manufac;
+	private ProductManufacture manufac;
 
 	private Long version;
 
@@ -53,11 +56,11 @@ public class AmazonVO {
 		this.pname = pname;
 	}
 
-	public Long getPnumber() {
+	public String getPnumber() {
 		return pnumber;
 	}
 
-	public void setPnumber(Long pnumber) {
+	public void setPnumber(String pnumber) {
 		this.pnumber = pnumber;
 	}
 
@@ -71,11 +74,11 @@ public class AmazonVO {
 		this.upc = upc;
 	}
 
-	public String getCategory() {
+	public ProductCategory getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(ProductCategory category) {
 		this.category = category;
 	}
 
@@ -87,11 +90,11 @@ public class AmazonVO {
 		this.desc = desc;
 	}
 
-	public String getManufac() {
+	public ProductManufacture getManufac() {
 		return manufac;
 	}
 
-	public void setManufac(String manufac) {
+	public void setManufac(ProductManufacture manufac) {
 		this.manufac = manufac;
 	}
 

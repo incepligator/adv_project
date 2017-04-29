@@ -1,5 +1,8 @@
 package com.guffy.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.guffy.entity.AmazonEntity;
@@ -58,6 +61,19 @@ public class AmazonMapper {
 
 		return mapToAmazonEntity(new AmazonEntity(), input);
 
+	}
+
+	public List<AmazonVO> mapToAmazonVOList(final List<AmazonEntity> entities) {
+
+		List<AmazonVO> results = new ArrayList<AmazonVO>();
+
+		for (AmazonEntity entity : entities) {
+
+			results.add(mapToAmazonVO(entity));
+
+		}
+
+		return results;
 	}
 
 }
