@@ -1,0 +1,87 @@
+
+
+
+<div id="product-update-container" >
+    <div class="container" >
+
+
+        <form name="product-update-form" ng-submit="submitProduct()">
+
+
+            <div class="row">
+                <div class="col-md-4">
+                    <md-input-container>
+                    <input type="text" placeholder="Enter Product Name" ng-model="productListModel.pname" required>
+                </md-input-container>
+
+                    <md-input-container>
+                        <input type="text" placeholder="Enter Product UPC" ng-model="productListModel.pupc" required>
+                    </md-input-container>
+
+
+
+
+
+                                <select name="category" id="pcat" class="form-control" ng-model="productListModel.pcat">
+
+
+
+                                    <option value="MOBILE" selected>Mobile</option>
+                                    <option value="LAPTOP">Laptop</option>
+                                    <option value="DESKTOP">Desktop</option>
+                                    <option value="CABLE">Cable</option>
+                                    <option value="PHONE">Phone</option>
+                                </select>
+
+
+</br>
+
+
+                                <select name="manufacture" id="pmanu" class="form-control" ng-model="productListModel.pmanu">
+
+
+                                    <option value="DELL" selected>Dell</option>
+                                    <option value="LENOVO">Lenovo</option>
+                                    <option value="APPLE">Apple</option>
+                                    <option value="TOSHIBA">Toshiba</option>
+                                    <option value="HP">HP</option>
+                                    <option value="MSI">MSI</option>
+                                    <option value="IBM">IBM</option>
+                                    <option value="ASUS">ASUS</option>
+                                    <option value="SAMSUNG">Samsung</option>
+                                    <option value="MICROSOFT">Microsoft</option>
+                                </select>
+
+
+
+
+
+                    <md-radio-group ng-model="productListModel.status">
+                        <md-radio-button value="Active" class="md-primary" ng-model="productListModel.status">Active</md-radio-button>
+                        <md-radio-button value="Inactive" ng-model="productListModel.status"> Inactive </md-radio-button>
+                    </md-radio-group>
+
+
+
+
+
+
+                </div>
+            </div>
+
+
+            <md-button type="submit" class="md-raised md-primary">Submit</md-button>
+
+
+        </form>
+
+
+
+    </div>
+</div>
+
+<button ng-click="submitProduct()">Post to data base </button>
+
+
+
+

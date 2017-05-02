@@ -1,0 +1,95 @@
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:black;
+}
+#header
+{
+    color:red;
+}
+
+.nav-sample{
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+}
+.nav-sample li{
+    list-style-type: none;
+    display: inline-block;
+    background: #999;
+    margin: 5px;
+    padding: 15px 50px;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+.nav-sample li:hover{
+
+    background-color:black;
+    color:white;
+    cursor:pointer;
+}
+
+#nav-bar{
+    background-color:cadetblue;
+    color:white;
+    font-size:30px;
+    display:flex;
+}
+#nav-bar span{
+    margin-right:15px;
+    padding:15px;
+}
+#nav-bar span:hover{
+    background-color:cyan;
+    color:black;
+
+
+}
+canvas {
+    background:
+            linear-gradient(
+                    hsl(200, 50%, 80%) 0%,
+                    hsl(200, 30%, 95%) 75%)
+;
+    display: block;
+}
+
+
+
+
+
+
+
+
+canvas {
+    background: #000;
+    bottom: 0;
+    box-shadow:
+            0 0 0 10px #222,
+            0 30px 30px -20px #000
+;
+    left: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+}
+
+
+input[type="text"], textarea {
+
+    background-color : #d1d1d1;
+
+}
+
+input[type="password"], textarea {
+
+    background-color : #d1d1d1;
+
+}
+

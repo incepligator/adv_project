@@ -1,0 +1,45 @@
+<div>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <input type="text" placeholder="Search By UPC ">
+        <md-button class="md-raised">Search UPC</md-button>
+        <input type="text" placeholder="Search By Name ">
+        <md-button class="md-raised">Search Name</md-button>
+        <input type="text" placeholder="Search By Number ">
+        <md-button class="md-raised">Search Number</md-button>
+        <div class="label">Raised</div>
+    </section>
+
+
+    <caption>
+    <input style="float:right" type="number" ng-model="search.pk  " placeholder="Search Product in Table">
+    </caption>
+
+
+
+    <table class="table  table-bodered table-striped table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Product number</th>
+            <th>UPC</th>
+            <th>Category</th>
+            <th>Manufacture</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+
+        <tr  ng-repeat="xx in productList |filter:search track by $index">
+            <td>{{xx.pk}}</td>
+            <td>{{xx.pname}}</td>
+            <td>{{xx.pnumber}}</td>
+            <td>{{xx.upc}}</td>
+            <td>{{xx.category}}</td>
+            <td>{{xx.manufac}}</td>
+            <td>{{xx.porderQuantity}}</td>
+            <td>{{xx.price}}</td>
+
+        </tr>
+
+    </table>
+
+</div>
