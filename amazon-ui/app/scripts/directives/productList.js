@@ -5,7 +5,7 @@ angular.module("amazon").directive("productList",[function(){
 
         restrict:"EA",
         templateUrl:"/app/views/productList.html",
-        controller:"productCtrl"
+        controller:"productPutCtrl"
     }
 
 }]);

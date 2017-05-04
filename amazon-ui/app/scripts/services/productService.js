@@ -21,19 +21,22 @@ angular.module("amazon").service("productService",['$http',function($http){
     };
 
 
-    this.getProductListByName= function(name){
+    this.postProductList = function(dataParam){
+
         return $http({
 
-            method:"GET",
-            url:"http://localhost:9898/amazon-app/amazon?searchStr="+name
+            method:"POST",
+            url:"http://localhost:9898/amazon-app/amazon",
+            data:dataParam
+
+
+
+
         }).then(function(result){
-
-            that.productList = result.data;
-            return result.data
+            return result.status;
         });
-        console.log(getProductListByName());
-
     };
+
 
 
 

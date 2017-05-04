@@ -11,7 +11,7 @@
 
 
     <caption>
-    <input style="float:right" type="number" ng-model="search.pk  " placeholder="Search Product in Table">
+    <input style="float:right" type="number" ng-model="search  " placeholder="Search Product in Table">
     </caption>
 
 
@@ -35,9 +35,10 @@
             <td>{{xx.upc}}</td>
             <td>{{xx.category}}</td>
             <td>{{xx.manufac}}</td>
-            <td>{{xx.porderQuantity}}</td>
+            <td>{{xx.pquantity}}</td>
             <td>{{xx.price}}</td>
-
+            <td><button class="btn btn-success btn-xs" ng-click="putProduct(xx)" >EDIT</button></td>
+            <td><button>DELETE</button></td>
         </tr>
 
     </table>

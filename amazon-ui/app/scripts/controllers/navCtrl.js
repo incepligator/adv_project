@@ -1,4 +1,4 @@
-angular.module("amazon").controller("navCtrl",["$scope",function($scope){
+angular.module("amazon").controller("navCtrl",["$scope","checkIdService",function($scope,cis){
 
     $scope.navList=[{
         "title":"Product List",
@@ -22,14 +22,24 @@ angular.module("amazon").controller("navCtrl",["$scope",function($scope){
         }
     ];
 
-
-
-    $scope.checkid=4  ;
+    $scope.checkid=cis.checkid;
 
     $scope.updateId=function (id){
 
-        $scope.checkid=id;
+        cis.updateId(id);
+        console.log($scope.checkid+'from the control nav');
     }
+
+    $scope.$watch(function(){
+        return cis.checkid;
+    }, function(newVal, oldVal){
+           console.log("value have changed");
+           if(newVal != oldVal) {
+               $scope.checkid = newVal;
+           }
+    });
+
+
 
 
 

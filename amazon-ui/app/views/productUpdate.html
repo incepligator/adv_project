@@ -5,26 +5,34 @@
     <div class="container" >
 
 
-        <form name="product-update-form" ng-submit="submitProduct()">
+        <form name="product-update-form" ng-submit="postProduct()">
 
 
             <div class="row">
                 <div class="col-md-4">
+
+                    <md-input-container>
+                        <input type="text" placeholder="Enter Product PK" ng-model="productListModel.pk" disabled>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <input type="text" placeholder="Enter Product Number" ng-model="productListModel.pnumber" required>
+                    </md-input-container>
+
+
                     <md-input-container>
                     <input type="text" placeholder="Enter Product Name" ng-model="productListModel.pname" required>
                 </md-input-container>
 
                     <md-input-container>
-                        <input type="text" placeholder="Enter Product UPC" ng-model="productListModel.pupc" required>
+                        <input type="text" placeholder="Enter Product UPC" ng-model="productListModel.upc" required>
                     </md-input-container>
 
+                    <md-input-container>
+                        <input type="text" placeholder="Enter Product Description" ng-model="productListModel.desc" required>
+                    </md-input-container>
 
-
-
-
-                                <select name="category" id="pcat" class="form-control" ng-model="productListModel.pcat">
-
-
+                                <select name="category" id="pcat" class="form-control" ng-model="productListModel.category">
 
                                     <option value="MOBILE" selected>Mobile</option>
                                     <option value="LAPTOP">Laptop</option>
@@ -37,7 +45,7 @@
 </br>
 
 
-                                <select name="manufacture" id="pmanu" class="form-control" ng-model="productListModel.pmanu">
+                                <select name="manufacture" id="pmanu" class="form-control" ng-model="productListModel.manufac">
 
 
                                     <option value="DELL" selected>Dell</option>
@@ -52,27 +60,57 @@
                                     <option value="MICROSOFT">Microsoft</option>
                                 </select>
 
+                   <!-- <md-radio-group ng-model="productListModel.status">
+                        <md-radio-button value="Active" class="md-primary"
 
 
-
-
-                    <md-radio-group ng-model="productListModel.status">
-                        <md-radio-button value="Active" class="md-primary" ng-model="productListModel.status">Active</md-radio-button>
+ ng-model="productListModel.status">Active</md-radio-button>
                         <md-radio-button value="Inactive" ng-model="productListModel.status"> Inactive </md-radio-button>
-                    </md-radio-group>
+                    </md-radio-group>-->
+                    <md-input-container>
+                        <input type="text" placeholder="Enter Product Price" ng-model="productListModel.price">
+                    </md-input-container>
 
 
 
+                    <md-input-container>
+                        <input type="text" placeholder="Enter Product Order Quantity" ng-model="productListModel.porderQuantity" >
+                    </md-input-container>
 
+                    <md-input-container>
+                        <input type="text" placeholder="Enter Product Order Threshold" ng-model="productListModel.pthreshold" >
+                    </md-input-container>
+
+                    <md-input-container>
+                        <input type="text" placeholder="Enter Product Order Active Date" ng-model="productListModel.activeDate" >
+                    </md-input-container>
+
+                    <md-input-container>
+                        <input type="text" placeholder="Enter Product Order InActive Date" ng-model="productListModel.inactiveDate" >
+                    </md-input-container>
+
+                    <md-input-container>
+                        <input type="text" placeholder="Enter Product Order Version" ng-model="productListModel.version" >
+                    </md-input-container>
+
+                    <md-input-container>
+                        <input type="text" placeholder="Enter Product Order Create Date" ng-model="productListModel.createDate" >
+                    </md-input-container>
+
+                    <md-input-container>
+                        <input type="text" placeholder="Enter Product Quantity" ng-model="productListModel.pquantity" >
+                    </md-input-container>
 
 
                 </div>
             </div>
 
 
-            <md-button type="submit" class="md-raised md-primary">Submit</md-button>
+            <md-button type="submit" class="md-raised md-primary">Submit ADD</md-button>
 
 
+
+            <md-button ng-click="putProduct()" class="md-raised">Submit Update</md-button>
         </form>
 
 
@@ -80,7 +118,9 @@
     </div>
 </div>
 
-<button ng-click="submitProduct()">Post to data base </button>
+
+
+
 
 
 
