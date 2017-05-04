@@ -1,7 +1,10 @@
 "use strict";
-// alert("new crtl outside");
+
 angular.module("amazon").controller("productPutCtrl", function($scope, checkIdService, productService){
-    // alert("new crtl inside");
+
+
+
+
     $scope.productList=[];
 
     var productListPromise=productService.getProductList();
@@ -23,4 +26,26 @@ angular.module("amazon").controller("productPutCtrl", function($scope, checkIdSe
         console.log(checkIdService.productModelService);
         checkIdService.checkid=2;
     }
+
+
+
+    $scope.removeProduct=function (product){
+
+        var answer = confirm("Are you Sure ?")
+
+        if (answer) {
+
+            productService.removeProduct(product).then(function(response){
+
+                alert("success deleted ")});
+        }
+        else {
+
+        }
+
+
+
+
+    };
+
 });

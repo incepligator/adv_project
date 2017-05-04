@@ -10,8 +10,8 @@
     </section>
 
 
-    <caption>
-    <input style="float:right" type="number" ng-model="search  " placeholder="Search Product in Table">
+    <caption >
+    <input style="float:right" type="text" ng-model="search" placeholder="Search Product in Table">
     </caption>
 
 
@@ -25,7 +25,8 @@
             <th>Category</th>
             <th>Manufacture</th>
             <th>Quantity</th>
-            <th>Price</th>
+            <th>Version</th>
+            <th>Created Date</th>
         </tr>
 
         <tr  ng-repeat="xx in productList |filter:search track by $index">
@@ -36,9 +37,13 @@
             <td>{{xx.category}}</td>
             <td>{{xx.manufac}}</td>
             <td>{{xx.pquantity}}</td>
-            <td>{{xx.price}}</td>
-            <td><button class="btn btn-success btn-xs" ng-click="putProduct(xx)" >EDIT</button></td>
-            <td><button>DELETE</button></td>
+            <td>{{xx.version}}</td>
+            <td>{{xx.createDate |date:"MM/dd/yyyy" }}</td>
+            <td><button class="btn btn-success" ng-click="putProduct(xx)" >EDIT</button></td>
+            <td><button class="btn btn-danger" ng-click="removeProduct(xx.pk)">DELETE</button></td>
+
+
+
         </tr>
 
     </table>

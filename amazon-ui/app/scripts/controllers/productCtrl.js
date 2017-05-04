@@ -20,7 +20,12 @@ angular.module("amazon").controller("productCtrl",
         "pquantity": "",
         "price": "",
         "pthreshold": "",
-        "upc": ""
+        "upc": "",
+        "pnumber":"",
+        "pk":"",
+        "version": "",
+        "inactiveDate": ""
+
     }
 
 
@@ -38,6 +43,23 @@ angular.module("amazon").controller("productCtrl",
             alert("success data write in server")});
 
     };
+
+    $scope.putProductUpdate=function (){
+
+        alert("putProduct");
+
+
+        productService.putProductList($scope.productListModel).then(function(response){
+
+            alert("success updated")});
+
+    };
+
+
+
+
+
+
         $scope.$watch(function(){
             return cis.productModelService;
         }, function(newVal, oldVal){

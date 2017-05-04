@@ -16,18 +16,49 @@ angular.module("amazon").service("productService",['$http',function($http){
             that.productList = result.data;
             return result.data
         });
-        console.log(getProductList());
+       // console.log(getProductList());
 
     };
 
 
     this.postProductList = function(dataParam){
 
+            return $http({
+
+                method:"POST",
+                url:"http://localhost:9898/amazon-app/amazon",
+                data:dataParam
+
+
+
+
+            }).then(function(result){
+                return result.status;
+            });
+    };
+        this.putProductList = function(dataParam){
+
+            return $http({
+
+                method:"PUT",
+                url:"http://localhost:9898/amazon-app/amazon",
+                data:dataParam
+
+
+
+
+            }).then(function(result){
+                return result.status;
+            });
+        };
+
+    this.removeProduct = function(pk){
+
         return $http({
 
-            method:"POST",
-            url:"http://localhost:9898/amazon-app/amazon",
-            data:dataParam
+            method:"DELETE",
+            url:"http://localhost:9898/amazon-app/amazon/"+pk
+
 
 
 
@@ -37,7 +68,7 @@ angular.module("amazon").service("productService",['$http',function($http){
         });
     };
 
-
+        }] );
 
 
 
@@ -97,4 +128,4 @@ angular.module("amazon").service("productService",['$http',function($http){
         });
     };*/
 
-}]);
+

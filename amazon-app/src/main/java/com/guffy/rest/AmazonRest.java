@@ -58,17 +58,11 @@ public class AmazonRest {
 	}
 
 	@GET
-
 	public Response searchAmazon(@QueryParam("searchStr") final String name) {
-
 		List<AmazonVO> results = service.searchProducts(name);
-
 		AmazonSearchProducts entity = new AmazonSearchProducts();
-
 		entity.setProducts(results);
-
 		return Response.ok().entity(entity).build();
-
 	}
 
 	@DELETE
