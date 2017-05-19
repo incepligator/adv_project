@@ -14,4 +14,8 @@ public interface AmazonService {
 
 	void removeProduct(final Long pk);
 
+	Long checkDuplicateName(final String name);
+
+	Long checkDuplicateUPC(final String upc);
+
 }

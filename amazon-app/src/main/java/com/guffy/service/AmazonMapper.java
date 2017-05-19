@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.guffy.entity.AmazonEntity;
+import com.guffy.exception.DataNotFoundException;
 import com.guffy.vo.AmazonVO;
 
 @Component
@@ -66,6 +67,13 @@ public class AmazonMapper {
 	public List<AmazonVO> mapToAmazonVOList(final List<AmazonEntity> entities) {
 
 		List<AmazonVO> results = new ArrayList<AmazonVO>();
+
+		if (entities.size() == 0) {
+
+			String exp = "Not Matching Product Found in the DateBase";
+			throw new DataNotFoundException(exp);
+
+		}
 
 		for (AmazonEntity entity : entities) {
 

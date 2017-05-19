@@ -14,6 +14,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,8 @@ import com.guffy.vo.AmazonVO;
 @Consumes(MediaType.APPLICATION_JSON)
 public class AmazonRest {
 
+	private static final Logger logger = LoggerFactory.getLogger(AmazonRest.class);
+
 	@Autowired
 	private AmazonService service;
 
@@ -34,7 +38,11 @@ public class AmazonRest {
 	@Path("/{id}")
 	public Response findProduct(@PathParam("id") final Long pk) {
 
+		logger.debug("Entering from AmazonRest.findproductById {}", pk);
+
 		AmazonVO result = service.findAmazonByid(pk);
+
+		logger.debug("exit form AmazonRest.findProduct");
 
 		return Response.ok().entity(result).build();
 
@@ -43,7 +51,14 @@ public class AmazonRest {
 	@POST
 	public Response saveAmazon(final AmazonVO vo) {
 
+		logger.debug("Entering AmzazonRest.save");
+
+		logger.debug("Amazon Info:{}", vo);
+
+		logger.info("UPC: {}, Category: {}", vo.getUpc(), vo.getCategory());
+
 		AmazonVO result = service.saveAmazonProduct(vo);
+		logger.debug("Exit AmazonRest.save");
 
 		return Response.ok().entity(result).build();
 
@@ -69,7 +84,11 @@ public class AmazonRest {
 	@Path("/{pk}")
 	public Response removeProducts(@PathParam("pk") final Long pk) {
 
+		logger.debug("Entering from AmazonRest.Delete {}", pk);
+
 		service.removeProduct(pk);
+
+		logger.debug("Exit form AmazonRest.Delete");
 
 		return Response.noContent().build();
 

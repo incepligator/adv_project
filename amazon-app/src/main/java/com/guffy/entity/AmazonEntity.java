@@ -9,6 +9,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -20,7 +21,13 @@ import com.guffy.rest.ProductManufacture;
 @Entity
 @Table(name = "PRODUCT")
 @XmlRootElement
-@NamedQuery(name = "amazonProducts.search", query = "select c from AmazonEntity c where UPPER(c.pname) like UPPER(:p1) OR UPPER(c.pnumber) like UPPER(:p2) OR UPPER(c.upc) like UPPER(:p3)")
+
+@NamedQueries({
+		@NamedQuery(name = "amazonProducts.search", query = "select c from AmazonEntity c where UPPER(c.pname) like UPPER(:p1) OR UPPER(c.pnumber) like UPPER(:p2) OR UPPER(c.upc) like UPPER(:p3)"),
+		@NamedQuery(name = "amazonProductsName.search", query = "select c from AmazonEntity c where UPPER(c.pname) like UPPER(:p1)"),
+		@NamedQuery(name = "amazonProductsUPC.search", query = "select c from AmazonEntity c where UPPER(c.upc) like UPPER(:p1)")
+
+})
 
 public class AmazonEntity {
 
@@ -34,11 +41,13 @@ public class AmazonEntity {
 	private String pname;
 
 	@Column(name = "prod_number")
+	@SequenceGenerator(name = "prodseq1", sequenceName = "prod_seq", allocationSize = 1)
+	@GeneratedValue(generator = "prodseq1")
 	private String pnumber;
 
 	@Column(name = "prod_upc")
-
 	private String upc;
+
 	@Enumerated(EnumType.STRING)
 	@Column(name = "prod_cat")
 	private ProductCategory category;
